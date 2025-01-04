@@ -2,11 +2,13 @@
 const mysql2 = require('mysql2');
 
 const dbconnection = mysql2.createPool({
-user:process.env.USER,  
-database:process.env.DATA_BASE,
-host:"localhost",
-password:process.env.PASSWORD,
-    connectionLimit: 10
+user:process.env.MYSQL_ADDON_USER,  
+database:process.env.MYSQL_ADDON_DB,
+host:process.env.MYSQL_ADDON_HOST,
+password:process.env.MYSQL_ADDON_PASSWORD,
+port:process.env.MYSQL_ADDON_PORT,
+    connectionLimit: 10,
+    waitForConnections:true
 })
 
 // check the connection b/n dotenv & dbConfig first require dotenv with config @ app.js
